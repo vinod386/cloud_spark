@@ -29,10 +29,10 @@ if __name__ == "__main__":
   #print (texts.take(5))
   #tweetcount =texts.map(lambda a : (a[0],[a[1][0],a[1][1]])).reduceByKey(lambda y, z: y[1]+z[1])
   tweetcount = texts.map(lambda a: (a[0],a[1][1])).reduceByKey(lambda a,b: (a+b))
-  print (tweetcount.take(2))
+  #print (tweetcount.take(2))
   tweetlength = texts.map(lambda a: (a[0],a[1][0])).reduceByKey(lambda a,b: (a+b))
-  print  ('PrezOno average\t',tweetlength.take(2)[1][1]/tweetcount.take(2)[1][1])
-  print  ('others average\t',tweetlength.take(2)[0][1]/tweetcount.take(2)[0][1])
+  print  ('PrezOno average\t',float(tweetlength.take(2)[1][1])/tweetcount.take(2)[1][1])
+  print  ('others average\t',float(tweetlength.take(2)[0][1])/tweetcount.take(2)[0][1])
   
   #lenghths.saveAsTextFile("Qsn3_lengths_twit3")
   sc.stop()
