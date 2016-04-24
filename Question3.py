@@ -33,7 +33,7 @@ if __name__ == "__main__":
   tweetlength = texts.map(lambda a: (a[0],a[1][0])).reduceByKey(lambda a,b: (a+b))
   print  ('others average\t',tweetlength.take(5)[1][1]/tweetcount.take(5)[1][1])
   print  ('PrezOno average\t',tweetlength.take(5)[0][1]/tweetcount.take(5)[0][1])
-  lengths.saveAsTextFile("Qsn3_lengths_twit3")
+  #lenghths.saveAsTextFile("Qsn3_lengths_twit3")
   sc.stop()
   #count=0
   #count1=0
